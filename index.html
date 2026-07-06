@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miroslava - Diseñadora Gráfica</title>
+    
+    <!-- ENLACES EXTERNOS (Tipografías e Iconos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 (Iconos gratuitos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- HOJA DE ESTILOS PRINCIPAL -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- HEADER (Barra de navegación fija)          -->
+    <!-- ========================================== -->
+    <header id="header">
+        <div class="container header-container">
+            <button id="menu-btn" class="menu-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <a href="#" class="logo">
+                <img src="img/logo.png" alt="Miroslava Logo"> Amanda Design
+            </a>
+
+            <div class="header-actions">
+                <button id="theme-toggle" aria-label="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#contacto" class="btn-contact">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- MENÚ LATERAL (DRAWER)                     -->
+    <!-- ========================================== -->
+    <div id="overlay"></div>
+    <nav id="drawer">
+        <div class="drawer-header">
+            <a href="#" class="logo">
+                <img src="img/logo.png" alt="Miroslava Logo"> Amanda Design
+            </a>
+            <button id="close-drawer" aria-label="Cerrar menú">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="drawer-nav">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#galeria">Portfolio</a></li>
+            <li><a href="blog.html">Blog personal</a></li>
+            <li><a href="#contacto" class="drawer-cta">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 1: HERO (Centrado)                -->
+        <!-- ========================================== -->
+        <section id="inicio" class="hero">
+            <div class="hero-bg">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Diseño gráfico">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container hero-content">
+                <span class="hero-badge">Branding · Identidad Visual · Diseño Editorial</span>
+                <h1>
+                    <span>Miroslava</span>
+                    <span>Diseñadora</span>
+                    <span class="highlight">Gráfica</span>
+                </h1>
+                <div class="hero-divider"></div>
+                <p>Me dedico al diseño gráfico y la creación de contenido visual, desarrollando flyers publicitarios, logotipos, videos promocionales y gestionando redes sociales para fortalecer la imagen de marcas y negocios.</p>
+                <div class="hero-buttons">
+                    <a href="#galeria" class="btn-primary">Ver Proyectos</a>
+                    <a href="#contacto" class="btn-secondary">Trabajemos Juntos</a>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 2: SOBRE MÍ                       -->
+        <!-- ========================================== -->
+        <section id="sobre-mi" class="about">
+            <div class="container">
+                <!-- Fila superior: Imagen + Texto -->
+                <div class="about-row">
+                    <div class="about-image">
+                        <img src="img\sobremi.jpeg" alt="Espacio de trabajo creativo">
+                    </div>
+                    <div class="about-text">
+                        <span class="section-badge">Sobre Mí</span>
+                        <h2>¡Hola! Soy Amanda Nina</h2>
+                        <p>Diseñadora gráfica de 25 años, apasionada por transformar ideas en diseños que impactan y comunican. Me especializo en la creación de flyers publicitarios, logotipos, spots publicitarios en video y gestión de redes sociales.</p>
+                        <p>Me mantengo en constante aprendizaje para incorporar nuevas tendencias y herramientas del diseño, ofreciendo soluciones creativas, modernas y adaptadas a las necesidades de cada proyecto. Mi objetivo es ayudar a marcas y emprendedores a destacar con una identidad visual profesional y contenido que conecte con su público.</p>
+                        <a href="blog.html" class="btn-link">Explorar más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Fila inferior: 3 cualidades centradas -->
+                <div class="about-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>Creatividad</h4>
+                        <p>Diseños modernos e innovadores aplicados a la identidad visual de tu marca.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h4>Dedicada</h4>
+                        <p>Me esfuerzo por entregar siempre lo mejor en cada proyecto, cuidando cada detalle técnico y visual.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Aprendizaje</h4>
+                        <p>Siempre aprendiendo nuevas tendencias y tecnologías para ofrecer soluciones visuales vanguardistas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 3: SERVICIOS                      -->
+        <!-- ========================================== -->
+        <section id="servicios" class="services">
+            <div class="container">
+                <div class="services-layout">
+                    <!-- Columna Izquierda - Texto -->
+                    <div class="services-text">
+                        <span class="section-badge">Servicios</span>
+                        <h2>¿En qué puedo ayudarte?</h2>
+                        <p>Conecta tu práctica profesional con herramientas esenciales. Simplifica la atención al cliente, facturación y cumplimiento en una sola plataforma.</p>
+                        <p class="services-subtext">Ofrezco soluciones visuales personalizadas que ayudan a tu marca a destacar en un mercado competitivo.</p>
+                    </div>
+
+                    <!-- Columna Derecha - Cards -->
+                    <div class="services-cards">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-pen-fancy"></i>
+                            </div>
+                            <h5>Identidad Visual</h5>
+                            <p>Logotipos, manuales de marca, paletas de colores y sistemas de comunicación visual.</p>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h5>Diseño Editorial</h5>
+                            <p>Revistas, catálogos, folletos y piezas impresas con un diseño editorial profesional.</p>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-hashtag"></i>
+                            </div>
+                            <h5>Contenido Digital</h5>
+                            <p>Diseño de banners, flyers publicitarios y gestión visual de redes sociales.</p>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h5>Edición de Video</h5>
+                            <p>Spots publicitarios cortos y videos promocionales para redes sociales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 4: PORTAFOLIO DESTACADO           -->
+        <!-- ========================================== -->
+        <section id="featured-grid" class="featured-section">
+            <div class="container">
+                <div class="featured-header">
+                    <span class="section-badge">Portafolio Destacado</span>
+                    <h2>Diseño que Comunica</h2>
+                    <p>Proyectos de diseño gráfico que transforman ideas en mensajes visuales poderosos. Cada pieza está creada para capturar la esencia de la marca y conectar con su audiencia.</p>
+                </div>
+
+                <div class="featured-grid">
+                    <div class="featured-main">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&auto=format&fit=crop&q=80" alt="Diseño de marca">
+                        <div class="featured-main-overlay">
+                            <span class="featured-tag">Branding</span>
+                            <h3>Identidad Corporativa</h3>
+                            <p>Diseño de identidad visual completa para una marca de tecnología, incluyendo logotipo, paleta de colores y sistema de comunicación.</p>
+                            <a href="#" class="featured-link">
+                                Ver Proyecto <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="featured-side">
+                        <div class="featured-side-top">
+                            <div class="featured-card">
+                                <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?w=600&auto=format&fit=crop&q=80" alt="Diseño de flyer">
+                                <div class="featured-card-overlay">
+                                    <span class="featured-tag">Flyer</span>
+                                    <h4>Publicidad Gráfica</h4>
+                                </div>
+                            </div>
+                            <div class="featured-card">
+                                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&auto=format&fit=crop&q=80" alt="Diseño de packaging">
+                                <div class="featured-card-overlay">
+                                    <span class="featured-tag">Packaging</span>
+                                    <h4>Diseño de Envases</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="featured-card featured-card-wide">
+                            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&auto=format&fit=crop&q=80" alt="Diseño editorial">
+                            <div class="featured-card-overlay">
+                                <span class="featured-tag">Editorial</span>
+                                <h4>Revistas y Catálogos</h4>
+                                <p>Diseño editorial profesional para publicaciones impresas y digitales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">120+</span>
+                        <p>Proyectos Realizados</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">45+</span>
+                        <p>Clientes Satisfechos</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <p>Tasa de Aprobación</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <p>Marcas Desarrolladas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 5: GALERÍA MARQUEE VERTICAL       -->
+        <!-- ========================================== -->
+        <section id="gallery-marquee" class="gallery-marquee-section">
+            <div class="container">
+                <div class="marquee-layout">
+                    <div class="marquee-content">
+                        <span class="section-badge">Trabajos</span>
+                        <h2>Colecciones</h2>
+                        <p>Descubre nuestros últimos trabajos</p>
+                        
+                        <div class="marquee-stats">
+                            <div>
+                                <span class="stat-number">100+</span>
+                                <p>Proyectos Completados</p>
+                            </div>
+                            <div>
+                                <span class="stat-number">20+</span>
+                                <p>Clientes Satisfechos</p>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="btn-marquee">
+                            Ver Colección
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="marquee-container">
+                        <div class="marquee-grid">
+                            <div class="marquee-col marquee-col-up">
+                                <div class="marquee-track-up">
+                                    <img src="img/galeria/proyecto1.jpeg" alt="Trabajo 1">
+                                    <img src="img/galeria/proyecto2.jpeg" alt="Trabajo 2">
+                                    <img src="img/galeria/proyecto3.jpeg" alt="Trabajo 3">
+                                    <img src="img/galeria/proyecto6.jpeg" alt="Trabajo 4">
+                                    <img src="img/galeria/proyecto1.jpeg" alt="Trabajo 1">
+                                    <img src="img/galeria/proyecto5.jpeg" alt="Trabajo 2">
+                                    <img src="img/galeria/proyecto3.jpeg" alt="Trabajo 3">
+                                    <img src="img/galeria/proyecto4.jpeg" alt="Trabajo 4">
+                                </div>
+                            </div>
+
+                            <div class="marquee-col marquee-col-down">
+                                <div class="marquee-track-down">
+                                    <img src="img/marquee/marquee1.jpeg" alt="Trabajo 5">
+                                    <img src="img/marquee/marquee2.jpeg" alt="Trabajo 6">
+                                    <img src="img/marquee/marquee3.jpeg" alt="Trabajo 7">
+                                    <img src="img/marquee/marquee4.jpeg" alt="Trabajo 8">
+                                    <img src="img/marquee/marquee5.jpeg" alt="Trabajo 5">
+                                    <img src="img/marquee/marquee4.jpeg" alt="Trabajo 6">
+                                    <img src="img/marquee/marquee1.jpeg" alt="Trabajo 7">
+                                    <img src="img/marquee/marquee2.jpeg" alt="Trabajo 8">
+                                </div>
+                            </div>
+
+                            <div class="marquee-col marquee-col-up marquee-col-desktop">
+                                <div class="marquee-track-up">
+                                    <img src="img/marquee/marquee1.jpeg" alt="Trabajo 5">
+                                    <img src="img/marquee/marquee2.jpeg" alt="Trabajo 6">
+                                    <img src="img/marquee/marquee3.jpeg" alt="Trabajo 7">
+                                    <img src="img/marquee/marquee4.jpeg" alt="Trabajo 8">
+                                    <img src="img/marquee/marquee5.jpeg" alt="Trabajo 5">
+                                    <img src="img/marquee/marquee6.jpeg" alt="Trabajo 6">
+                                    <img src="img/marquee/marquee1.jpeg" alt="Trabajo 7">
+                                    <img src="img/marquee/marquee8.jpg" alt="Trabajo 8">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="marquee-gradient-top"></div>
+                        <div class="marquee-gradient-bottom"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: CARRUSEL DE VIDEOS (Verticales) -->
+<section id="video-carousel" class="video-carousel-section">
+    <div class="container">
+        <!-- Header -->
+        <div class="video-carousel-header">
+            <span class="section-badge">Galería de Videos</span>
+            <h2>Contenido en Movimiento</h2>
+            <p>Videos promocionales y contenido audiovisual para redes sociales</p>
+        </div>
+
+        <!-- Carrusel de Videos -->
+        <div class="video-carousel-wrapper">
+            <div class="video-carousel-track" id="videoTrack">
+                <!-- Video 1 -->
+                <div class="video-carousel-slide">
+                    <div class="video-card">
+                        <video class="video-player" muted loop playsinline>
+                            <source src="videos/video1.mp4" type="video/mp4">
+                            Tu navegador no soporta videos.
+                        </video>
+                        <div class="video-overlay">
+                            <span class="video-tag">Promocional</span>
+                            <h3>Video 1</h3>
+                            <button class="video-play-btn" aria-label="Reproducir video">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-carousel-slide">
+                    <div class="video-card">
+                        <video class="video-player" muted loop playsinline>
+                            <source src="videos/video2.mp4" type="video/mp4">
+                            Tu navegador no soporta videos.
+                        </video>
+                        <div class="video-overlay">
+                            <span class="video-tag">Educativo</span>
+                            <h3>Video 2</h3>
+                            <button class="video-play-btn" aria-label="Reproducir video">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-carousel-slide">
+                    <div class="video-card">
+                        <video class="video-player" muted loop playsinline>
+                            <source src="videos/video3.mp4" type="video/mp4">
+                            Tu navegador no soporta videos.
+                        </video>
+                        <div class="video-overlay">
+                            <span class="video-tag">Branding</span>
+                            <h3>Video 3</h3>
+                            <button class="video-play-btn" aria-label="Reproducir video">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agrega más videos según necesites -->
+            </div>
+        </div>
+
+        <!-- Navegación -->
+        <div class="video-carousel-nav">
+            <button id="videoPrev" class="video-nav-btn video-nav-prev" aria-label="Anterior">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            
+            <div class="video-progress" id="videoProgress">
+                <span class="video-dot active"></span>
+                <span class="video-dot"></span>
+                <span class="video-dot"></span>
+            </div>
+            
+            <button id="videoNext" class="video-nav-btn video-nav-next" aria-label="Siguiente">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 8: CONTACTO                      -->
+        <!-- ========================================== -->
+        <section id="contacto" class="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <span class="section-badge">Contacto</span>
+                        <h2>Hablemos de tu próximo proyecto</h2>
+                        <p>¿Tienes una idea en mente? Me encantaría escucharla y ayudarte a hacerla realidad.</p>
+                        <div class="contact-details">
+                            <div>
+                                <i class="fas fa-envelope"></i>
+                                <span>miroslava@diseno.com</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-phone"></i>
+                                <span>+591 62363338</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>La Paz, Bolivia</span>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary btn-full">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- FOOTER                                     -->
+    <!-- ========================================== -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                <img src="img/logo.png" alt="Miroslava Logo"> Amanda Design
+            </a>
+                    <p>Comprometidos con nuestro trabajo y nuestros clientes.</p>
+                    <div class="footer-social-proof">
+                        <div class="avatars">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Usuario">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Usuario">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&auto=format&fit=crop&q=80" alt="Usuario">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="#">Centro de Ayuda</a></li>
+                        <li><a href="#">Contáctanos</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">Envíos</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Miroslava. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Términos</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- SCRIPTS                                    -->
+    <!-- ========================================== -->
+    <script src="script.js"></script>
+</body>
+</html>
