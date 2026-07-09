@@ -29,36 +29,36 @@ Ver la página en vivo:
 
 miroslava-portafolio/
 │
-├── index.html # Página principal
-├── sobre-mi.html # Página Sobre mí
-├── blog.html # Página del Blog
-├── contacto.html # Página de Contacto
-├── articulo1.html # Artículo 1 del Blog
-├── articulo2.html # Artículo 2 del Blog
-├── proyecto1.html # Proyecto 1 (Logotipos)
-├── proyecto2.html # Proyecto 2 (Flyers)
-├── proyecto3.html # Proyecto 3 (Spots)
+├── index.html
+├── sobre-mi.html
+├── blog.html
+├── contacto.html
+├── articulo1.html
+├── articulo2.html
+├── proyecto1.html
+├── proyecto2.html
+├── proyecto3.html
 │
-├── css/
-│ ├── style.css # Estilos globales
-│ ├── blog.css # Estilos del Blog
-│ ├── contacto.css # Estilos de Contacto
-│ ├── articulo.css # Estilos de Artículos
-│ ├── proyecto.css # Estilos de Proyectos
-│ └── sobremi.css # Estilos de Sobre mí
+├── style.css
+├── blog.css
+├── contacto.css
+├── articulo.css
+├── proyecto.css
+├── sobremi.css
 │
-├── js/
-│ └── script.js # Funcionalidades globales
+├── script.js
 │
 ├── img/
-│ ├── logo.png # Logo del sitio
-│ ├── fondo.jpeg # Imagen de fondo
-│ └── proyectos/ # Imágenes de proyectos
+│   ├── logo.png
+│   ├── fondo.jpeg
+│   ├── sobremi.jpeg
+│   └── proyectos/
 │
 └── videos/
-├── video4.mp4
-├── video5.mp4
-└── video6.mp4
+    ├── video4.mp4
+    ├── video5.mp4
+    └── video6.mp4
+```
 
 
 ## Tecnologías Utilizadas
