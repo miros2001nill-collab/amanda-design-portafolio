@@ -1,12 +1,14 @@
-// ============================================ //
-// MIROSLAVA - SCRIPT COMPLETO                  //
-// ============================================ //
+/* ================================================================
+   PROYECTO: PORTAFOLIO MIROSLAVA
+   ARCHIVO: script.js
+   DESCRIPCION: Funcionalidades globales para todas las paginas
+   ================================================================ */
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ========================================== //
-    // 1. MENÚ LATERAL (DRAWER)                  //
-    // ========================================== //
+    /* ================================================================
+       1. MENU LATERAL (DRAWER)
+       ================================================================ */
     
     const drawer = document.getElementById('drawer');
     const overlay = document.getElementById('overlay');
@@ -14,19 +16,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeDrawerBtn = document.getElementById('close-drawer');
     
     function openDrawer() {
+        if (!drawer) return;
         drawer.classList.add('active');
-        overlay.classList.add('active');
+        if (overlay) overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
     
     function closeDrawer() {
+        if (!drawer) return;
         drawer.classList.remove('active');
-        overlay.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
         document.body.style.overflow = '';
     }
     
     if (menuBtn) {
-        menuBtn.addEventListener('click', openDrawer);
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            openDrawer();
+        });
     }
     
     if (closeDrawerBtn) {
@@ -38,31 +45,56 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && drawer.classList.contains('active')) {
+        if (e.key === 'Escape' && drawer && drawer.classList.contains('active')) {
             closeDrawer();
         }
     });
     
-    const drawerLinks = drawer ? drawer.querySelectorAll('a') : [];
-    drawerLinks.forEach(link => {
-        link.addEventListener('click', closeDrawer);
+    /* ================================================================
+       2. SUBMENU EN DRAWER (MOVIL)
+       ================================================================ */
+    
+    const drawerToggles = document.querySelectorAll('.drawer-toggle');
+    
+    drawerToggles.forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            this.classList.toggle('active');
+            
+            var subMenu = this.nextElementSibling;
+            if (subMenu && subMenu.classList.contains('drawer-sub-menu')) {
+                subMenu.classList.toggle('open');
+            }
+        });
     });
     
+    /* ================================================================
+       3. CERRAR DRAWER AL HACER CLIC EN ENLACES
+       ================================================================ */
     
-    // ========================================== //
-    // 2. MODO OSCURO / CLARO                   //
-    // ========================================== //
+    if (drawer) {
+        var drawerLinks = drawer.querySelectorAll('.drawer-nav a:not(.drawer-toggle)');
+        drawerLinks.forEach(function(link) {
+            link.addEventListener('click', closeDrawer);
+        });
+    }
     
-    const themeToggle = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
+    /* ================================================================
+       4. MODO OSCURO / CLARO
+       ================================================================ */
     
-    const savedTheme = localStorage.getItem('theme');
+    var themeToggle = document.getElementById('theme-toggle');
+    var htmlElement = document.documentElement;
+    
+    var savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         htmlElement.classList.add('dark');
     } else if (savedTheme === 'light') {
         htmlElement.classList.remove('dark');
     } else {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (prefersDark) {
             htmlElement.classList.add('dark');
             localStorage.setItem('theme', 'dark');
@@ -73,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (themeToggle) {
         themeToggle.addEventListener('click', function() {
-            const isDark = htmlElement.classList.contains('dark');
+            var isDark = htmlElement.classList.contains('dark');
             if (isDark) {
                 htmlElement.classList.remove('dark');
                 localStorage.setItem('theme', 'light');
@@ -84,85 +116,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    /* ================================================================
+       5. NAVEGACION SUAVE (Smooth Scroll)
+       ================================================================ */
     
-    // ========================================== //
-    // 3. CARRUSEL DE TESTIMONIOS               //
-    // ========================================== //
+    var smoothLinks = document.querySelectorAll('a[href^="#"]:not(.drawer-toggle)');
     
-    const carouselTrack = document.getElementById('testimonial-track');
-    const prevBtn = document.getElementById('testimonial-prev');
-    const nextBtn = document.getElementById('testimonial-next');
-    
-    if (carouselTrack && prevBtn && nextBtn) {
-        let currentScroll = 0;
-        const cardWidth = 344;
-        let maxScroll = 0;
-        
-        function updateMaxScroll() {
-            const containerWidth = carouselTrack.parentElement.offsetWidth;
-            const totalWidth = carouselTrack.scrollWidth;
-            maxScroll = Math.max(0, totalWidth - containerWidth);
-        }
-        
-        function scrollCarousel(direction) {
-            updateMaxScroll();
-            const scrollAmount = cardWidth * 2;
-            
-            if (direction === 'next') {
-                currentScroll = Math.min(currentScroll + scrollAmount, maxScroll);
-            } else {
-                currentScroll = Math.max(currentScroll - scrollAmount, 0);
-            }
-            
-            carouselTrack.scrollTo({
-                left: currentScroll,
-                behavior: 'smooth'
-            });
-        }
-        
-        prevBtn.addEventListener('click', function() {
-            scrollCarousel('prev');
-        });
-        
-        nextBtn.addEventListener('click', function() {
-            scrollCarousel('next');
-        });
-        
-        let resizeTimeout;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(function() {
-                updateMaxScroll();
-                if (currentScroll > maxScroll) {
-                    currentScroll = maxScroll;
-                    carouselTrack.scrollTo({
-                        left: currentScroll,
-                        behavior: 'smooth'
-                    });
-                }
-            }, 250);
-        });
-        
-        setTimeout(updateMaxScroll, 100);
-    }
-    
-    
-    // ========================================== //
-    // 4. NAVEGACIÓN SUAVE (Smooth Scroll)       //
-    // ========================================== //
-    
-    const smoothLinks = document.querySelectorAll('a[href^="#"]');
-    
-    smoothLinks.forEach(link => {
+    smoothLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
+            var targetId = this.getAttribute('href');
             if (targetId === '#') return;
             
-            const targetElement = document.querySelector(targetId);
+            var targetElement = document.querySelector(targetId);
             if (targetElement) {
                 e.preventDefault();
-                const headerHeight = document.getElementById('header')?.offsetHeight || 64;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+                var headerHeight = document.getElementById('header')?.offsetHeight || 64;
+                var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
                 
                 window.scrollTo({
                     top: targetPosition,
@@ -172,20 +141,44 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    /* ================================================================
+       6. HEADER SCROLL EFFECT
+       ================================================================ */
     
-    // ========================================== //
-    // 5. FORMULARIO DE CONTACTO                 //
-    // ========================================== //
+    var header = document.getElementById('header');
     
-    const contactForm = document.getElementById('contactForm');
+    function handleHeaderScroll() {
+        if (!header) return;
+        var currentScrollY = window.pageYOffset;
+        
+        if (currentScrollY > 50) {
+            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            header.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+        } else {
+            header.style.boxShadow = 'none';
+            header.style.borderBottom = '1px solid rgba(255, 255, 255, 0.05)';
+        }
+    }
+    
+    window.addEventListener('scroll', function() {
+        requestAnimationFrame(handleHeaderScroll);
+    });
+    
+    handleHeaderScroll();
+    
+    /* ================================================================
+       7. FORMULARIO DE CONTACTO
+       ================================================================ */
+    
+    var contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const name = document.getElementById('name')?.value?.trim();
-            const email = document.getElementById('email')?.value?.trim();
-            const message = document.getElementById('message')?.value?.trim();
+            var name = document.getElementById('name')?.value?.trim();
+            var email = document.getElementById('email')?.value?.trim();
+            var message = document.getElementById('message')?.value?.trim();
             
             if (!name) {
                 showFormError('Por favor, ingresa tu nombre.');
@@ -193,12 +186,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (!email) {
-                showFormError('Por favor, ingresa tu correo electrónico.');
+                showFormError('Por favor, ingresa tu correo electronico.');
                 return;
             }
             
             if (!isValidEmail(email)) {
-                showFormError('Por favor, ingresa un correo electrónico válido.');
+                showFormError('Por favor, ingresa un correo electronico valido.');
                 return;
             }
             
@@ -207,8 +200,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn?.textContent || 'Enviar Mensaje';
+            var submitBtn = contactForm.querySelector('button[type="submit"]');
+            var originalText = submitBtn?.textContent || 'Enviar Mensaje';
             
             if (submitBtn) {
                 submitBtn.textContent = 'Enviando...';
@@ -217,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             setTimeout(function() {
-                showFormSuccess('¡Mensaje enviado con éxito! Te contactaré pronto.');
+                showFormSuccess('Mensaje enviado con exito! Te contactare pronto.');
                 contactForm.reset();
                 
                 if (submitBtn) {
@@ -230,33 +223,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
     
     function showFormError(message) {
-        const existingError = document.querySelector('.form-error-message');
+        var existingError = document.querySelector('.form-error-message');
         if (existingError) {
             existingError.remove();
         }
         
-        const errorDiv = document.createElement('div');
+        var errorDiv = document.createElement('div');
         errorDiv.className = 'form-error-message';
-        errorDiv.style.cssText = `
-            padding: 12px 16px;
-            background: #fee2e2;
-            color: #991b1b;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-            border: 1px solid #fecaca;
-        `;
+        errorDiv.style.cssText = 'padding: 12px 16px; background: #fee2e2; color: #991b1b; border-radius: 12px; font-size: 0.9rem; margin-bottom: 16px; border: 1px solid #fecaca;';
         errorDiv.textContent = '⚠️ ' + message;
         
-        const form = document.getElementById('contactForm');
+        var form = document.getElementById('contactForm');
         if (form) {
             form.insertBefore(errorDiv, form.firstChild);
-            setTimeout(() => {
+            setTimeout(function() {
                 if (errorDiv.parentNode) {
                     errorDiv.remove();
                 }
@@ -265,28 +250,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function showFormSuccess(message) {
-        const existingSuccess = document.querySelector('.form-success-message');
+        var existingSuccess = document.querySelector('.form-success-message');
         if (existingSuccess) {
             existingSuccess.remove();
         }
         
-        const successDiv = document.createElement('div');
+        var successDiv = document.createElement('div');
         successDiv.className = 'form-success-message';
-        successDiv.style.cssText = `
-            padding: 12px 16px;
-            background: #d1fae5;
-            color: #065f46;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-            border: 1px solid #a7f3d0;
-        `;
+        successDiv.style.cssText = 'padding: 12px 16px; background: #d1fae5; color: #065f46; border-radius: 12px; font-size: 0.9rem; margin-bottom: 16px; border: 1px solid #a7f3d0;';
         successDiv.textContent = '✅ ' + message;
         
-        const form = document.getElementById('contactForm');
+        var form = document.getElementById('contactForm');
         if (form) {
             form.insertBefore(successDiv, form.firstChild);
-            setTimeout(() => {
+            setTimeout(function() {
                 if (successDiv.parentNode) {
                     successDiv.remove();
                 }
@@ -294,289 +271,117 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    /* ================================================================
+       8. CONSOLA DE BIENVENIDA
+       ================================================================ */
     
-    // ========================================== //
-    // 6. HEADER SCROLL EFFECT                   //
-    // ========================================== //
+    console.log('%c🎨 Miroslava - Disenadora Grafica', 'font-size: 20px; font-weight: bold; color: #6366f1;');
+    console.log('%c✨ Diseno con pasion y proposito', 'font-size: 14px; color: #94a3b8;');
+    console.log('%c📧 miroslava@diseno.com', 'font-size: 12px; color: #94a3b8;');
     
-    const header = document.getElementById('header');
-    let lastScrollY = window.pageYOffset;
+});
+
+/* ================================================================
+   CARRUSEL DE VIDEOS - PROYECTO 3
+   ================================================================ */
+
+document.addEventListener('DOMContentLoaded', function() {
     
-    function handleHeaderScroll() {
-        const currentScrollY = window.pageYOffset;
-        
-        if (currentScrollY > 50) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-            header.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
-        } else {
-            header.style.boxShadow = 'none';
-            header.style.borderBottom = '1px solid rgba(255, 255, 255, 0.05)';
-        }
-        
-        lastScrollY = currentScrollY;
-    }
+    // ---- CARRUSEL ----
+    const track = document.getElementById('videoTrack');
+    const prevBtn = document.getElementById('carrusel-prev');
+    const nextBtn = document.getElementById('carrusel-next');
+    const dots = document.querySelectorAll('.dot');
     
-    window.addEventListener('scroll', function() {
-        requestAnimationFrame(handleHeaderScroll);
-    });
-    
-    handleHeaderScroll();
-    
-    
-    // ========================================== //
-    // 7. ANIMACIONES AL SCROLL (Intersection)   //
-    // ========================================== //
-    
-    const animateElements = document.querySelectorAll(
-        '.feature-card, .service-card, .featured-card, ' +
-        '.featured-main, .marquee-content, .video-card, ' +
-        '.testimonial-card, .contact-grid > *, .stat-item'
-    );
-    
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in-up');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-        
-        animateElements.forEach(function(element) {
-            element.style.opacity = '0';
-            observer.observe(element);
-        });
-        
-        const heroStats = document.querySelectorAll('.stat-card');
-        heroStats.forEach(function(stat) {
-            stat.style.opacity = '0';
-            observer.observe(stat);
-        });
-    } else {
-        animateElements.forEach(function(element) {
-            element.style.opacity = '1';
-        });
-    }
-    
-    
-    // ========================================== //
-    // 8. CONTADOR DE ESTADÍSTICAS               //
-    // ========================================== //
-    
-    function animateCounters() {
-        const statNumbers = document.querySelectorAll('.stat-number');
-        
-        statNumbers.forEach(function(stat) {
-            const text = stat.textContent;
-            const number = parseInt(text);
-            
-            if (isNaN(number)) return;
-            
-            const isPercentage = text.includes('%');
-            const isPlus = text.includes('+');
-            
-            let current = 0;
-            const increment = Math.ceil(number / 40);
-            const stepTime = Math.floor(1500 / 40);
-            
-            const timer = setInterval(function() {
-                current += increment;
-                if (current >= number) {
-                    current = number;
-                    clearInterval(timer);
-                }
-                
-                let displayText = current.toString();
-                if (isPlus) displayText += '+';
-                if (isPercentage) displayText += '%';
-                stat.textContent = displayText;
-            }, stepTime);
-        });
-    }
-    
-    const heroSection = document.getElementById('inicio');
-    if (heroSection && 'IntersectionObserver' in window) {
-        const counterObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-        
-        counterObserver.observe(heroSection);
-    }
-    
-    
-    // ========================================== //
-    // 9. PREVENCIÓN DE CLICS EN ENLACES VACÍOS  //
-    // ========================================== //
-    
-    const emptyLinks = document.querySelectorAll('a[href="#"]');
-    emptyLinks.forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-        });
-    });
-    
-    
-    // ========================================== //
-    // 10. CARRUSEL DE VIDEOS                    //
-    // ========================================== //
-    
-    function initVideoCarousel() {
-        const section = document.getElementById('video-carousel');
-        if (!section) return;
-        
-        const track = document.getElementById('videoTrack');
-        const prevBtn = document.getElementById('videoPrev');
-        const nextBtn = document.getElementById('videoNext');
-        const dots = document.querySelectorAll('.video-dot');
-        const slides = track ? track.querySelectorAll('.video-carousel-slide') : [];
-        
-        if (!track || !prevBtn || !nextBtn) return;
-        
+    if (track && prevBtn && nextBtn) {
         let currentIndex = 0;
+        const totalSlides = dots.length;
         let slidesPerView = 1;
-        let totalSlides = slides.length;
-        
-        function getSlidesPerView() {
-            if (window.innerWidth >= 768) {
-                return 2;
-            }
-            return 1;
-        }
         
         function updateCarousel() {
-            slidesPerView = getSlidesPerView();
             const slideWidth = 100 / slidesPerView;
             const offset = currentIndex * slideWidth;
             track.style.transform = `translateX(-${offset}%)`;
-            updateDots();
-        }
-        
-        function updateDots() {
-            const totalDots = Math.ceil(totalSlides / slidesPerView);
-            const currentDot = Math.floor(currentIndex / slidesPerView);
             
+            // Actualizar dots
             dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentDot);
-                dot.style.display = index < totalDots ? 'block' : 'none';
+                dot.classList.toggle('active', index === currentIndex);
             });
         }
         
         function moveCarousel(direction) {
-            slidesPerView = getSlidesPerView();
-            const maxIndex = Math.max(0, totalSlides - slidesPerView);
-            
             if (direction === 'next') {
-                currentIndex = Math.min(currentIndex + slidesPerView, maxIndex);
+                currentIndex = Math.min(currentIndex + 1, totalSlides - 1);
             } else {
-                currentIndex = Math.max(currentIndex - slidesPerView, 0);
+                currentIndex = Math.max(currentIndex - 1, 0);
             }
-            
             updateCarousel();
         }
         
-        prevBtn.addEventListener('click', () => moveCarousel('prev'));
-        nextBtn.addEventListener('click', () => moveCarousel('next'));
+        prevBtn.addEventListener('click', function() {
+            moveCarousel('prev');
+        });
         
-        dots.forEach((dot, index) => {
+        nextBtn.addEventListener('click', function() {
+            moveCarousel('next');
+        });
+        
+        dots.forEach(function(dot, index) {
             dot.addEventListener('click', function() {
-                slidesPerView = getSlidesPerView();
-                const targetIndex = index * slidesPerView;
-                const maxIndex = Math.max(0, totalSlides - slidesPerView);
-                currentIndex = Math.min(targetIndex, maxIndex);
+                currentIndex = index;
                 updateCarousel();
             });
         });
         
-        // Control de reproducción de videos
-        slides.forEach(slide => {
-            const video = slide.querySelector('.video-player');
-            const playBtn = slide.querySelector('.video-play-btn');
+        // Inicializar
+        updateCarousel();
+    }
+    
+    // ---- REPRODUCCION DE VIDEOS ----
+    const playBtns = document.querySelectorAll('.video-play-btn');
+    
+    playBtns.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
             
-            if (video && playBtn) {
-                playBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    toggleVideo(video, playBtn);
-                });
-                
-                slide.addEventListener('click', function() {
-                    toggleVideo(video, playBtn);
-                });
-                
-                video.addEventListener('ended', function() {
-                    playBtn.classList.remove('playing');
-                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
-                });
-            }
-        });
-        
-        function toggleVideo(video, playBtn) {
-            if (video.paused) {
-                // Pausar todos los otros videos
-                document.querySelectorAll('.video-player').forEach(v => {
-                    if (v !== video && !v.paused) {
-                        v.pause();
-                        const btn = v.closest('.video-card').querySelector('.video-play-btn');
-                        if (btn) {
-                            btn.classList.remove('playing');
-                            btn.innerHTML = '<i class="fas fa-play"></i>';
-                        }
+            const videoId = this.getAttribute('data-video');
+            const video = document.getElementById(videoId);
+            
+            if (!video) return;
+            
+            // Pausar todos los otros videos
+            document.querySelectorAll('.video-player').forEach(function(v) {
+                if (v.id !== videoId && !v.paused) {
+                    v.pause();
+                    const otherBtn = document.querySelector(`.video-play-btn[data-video="${v.id}"]`);
+                    if (otherBtn) {
+                        otherBtn.classList.remove('playing');
+                        otherBtn.innerHTML = '<i class="fas fa-play"></i>';
                     }
-                });
-                
+                }
+            });
+            
+            if (video.paused) {
                 video.play();
-                playBtn.classList.add('playing');
-                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                this.classList.add('playing');
+                this.innerHTML = '<i class="fas fa-pause"></i>';
             } else {
                 video.pause();
-                playBtn.classList.remove('playing');
-                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                this.classList.remove('playing');
+                this.innerHTML = '<i class="fas fa-play"></i>';
             }
-        }
-        
-        let resizeTimeout;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(function() {
-                const newSlidesPerView = getSlidesPerView();
-                if (newSlidesPerView !== slidesPerView) {
-                    slidesPerView = newSlidesPerView;
-                    const maxIndex = Math.max(0, totalSlides - slidesPerView);
-                    if (currentIndex > maxIndex) {
-                        currentIndex = maxIndex;
-                    }
-                    updateCarousel();
-                }
-            }, 250);
         });
-        
-        setTimeout(() => {
-            updateCarousel();
-        }, 100);
-    }
+    });
     
-    // Inicializar carrusel de videos
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initVideoCarousel);
-    } else {
-        initVideoCarousel();
-    }
-    
-    
-    // ========================================== //
-    // 11. CONSOLA DE BIENVENIDA                 //
-    // ========================================== //
-    
-    console.log('%c🎨 Miroslava - Diseñadora Gráfica', 'font-size: 20px; font-weight: bold; color: #6366f1;');
-    console.log('%c✨ Diseño con pasión y propósito', 'font-size: 14px; color: #94a3b8;');
-    console.log('%c📧 miroslava@diseno.com', 'font-size: 12px; color: #94a3b8;');
+    // Pausar videos cuando terminan
+    document.querySelectorAll('.video-player').forEach(function(video) {
+        video.addEventListener('ended', function() {
+            const btn = document.querySelector(`.video-play-btn[data-video="${this.id}"]`);
+            if (btn) {
+                btn.classList.remove('playing');
+                btn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        });
+    });
     
 });

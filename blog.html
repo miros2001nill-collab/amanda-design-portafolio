@@ -5,216 +5,209 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Miroslava Diseñadora</title>
     
-    <!-- ENLACES EXTERNOS -->
+    <!-- TIPOGRAFIAS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    
+    <!-- ICONOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
-    <!-- HOJA DE ESTILOS PRINCIPAL -->
+    <!-- ESTILOS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
 </head>
 <body>
 
-    <!-- ========================================== -->
-    <!-- HEADER (Barra de navegación fija)          -->
-    <!-- ========================================== -->
+    <!-- ================================================================ -->
+    <!-- HEADER - Barra de navegacion fija                                 -->
+    <!-- ================================================================ -->
     <header id="header">
         <div class="container header-container">
-            <button id="menu-btn" class="menu-toggle" aria-label="Abrir menú">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="header-left">
+                <button id="menu-btn" class="menu-toggle" aria-label="Abrir menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="index.html" class="logo">
+                    <img src="img/logo.png" alt="Miroslava Logo">
+                </a>
+            </div>
 
-             <a href="index.html" class="logo">
-                <img src="img/logo.png" alt="Miroslava Logo"> Amanda Design
-            </a>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre-mi.html">Sobre mi</a></li>
+                    
+                    <li class="menu-item-has-children">
+                        <a href="#proyectos">Proyectos <i class="fas fa-chevron-down"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="proyecto1.html">Diseño de logotipos</a></li>
+                            <li><a href="proyecto2.html">Diseño de flyers</a></li>
+                            <li><a href="proyecto3.html">Spots publicitarios</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
 
             <div class="header-actions">
                 <button id="theme-toggle" aria-label="Cambiar tema">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="index.html#contacto" class="btn-contact">Contacto</a>
             </div>
         </div>
     </header>
 
-    <!-- ========================================== -->
-    <!-- MENÚ LATERAL (DRAWER)                     -->
-    <!-- ========================================== -->
+    <!-- ================================================================ -->
+    <!-- DRAWER - Menu lateral (Movil)                                    -->
+    <!-- ================================================================ -->
     <div id="overlay"></div>
     <nav id="drawer">
         <div class="drawer-header">
             <a href="index.html" class="logo">
-                <img src="img/logo.png" alt="Miroslava Logo"> Amanda Design
+                <img src="img/logo.png" alt="Miroslava Logo">
             </a>
-            </a>
-            <button id="close-drawer" aria-label="Cerrar menú">
+            <button id="close-drawer" aria-label="Cerrar menu">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         <ul class="drawer-nav">
-            <li><a href="index.html#inicio">Inicio</a></li>
-            <li><a href="index.html#sobre-mi">Sobre mí</a></li>
-            <li><a href="index.html#servicios">Servicios</a></li>
-            <li><a href="index.html#galeria">Portafolio</a></li>
-            <li><a href="blog.html">Blog personal</a></li>
-            <li><a href="index.html#contacto" class="drawer-cta">Contacto</a></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="sobre-mi.html">Sobre mi</a></li>
+            <li class="drawer-menu-item-has-children">
+                <a href="#proyectos" class="drawer-toggle">Proyectos <i class="fas fa-chevron-down"></i></a>
+                <ul class="drawer-sub-menu">
+                            <li><a href="proyecto1.html">Diseño de logotipos</a></li>
+                            <li><a href="proyecto2.html">Diseño de flyers</a></li>
+                            <li><a href="proyecto3.html">Spots publicitarios</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contacto.html" class="drawer-cta">Contacto</a></li>
         </ul>
     </nav>
 
+    <!-- ================================================================ -->
+    <!-- MAIN                                                             -->
+    <!-- ================================================================ -->
     <main>
 
-        <!-- ========================================== -->
-        <!-- HERO DEL BLOG                             -->
-        <!-- ========================================== -->
-        <section class="blog-hero">
+        <!-- ================================================================ -->
+        <!-- BLOG - HEADER                                                    -->
+        <!-- ================================================================ -->
+        <section class="blog-header">
             <div class="container">
-                <div class="blog-hero-content">
-                    <span class="section-badge">Blog</span>
-                    <h1>Mi Camino como Diseñadora</h1>
-                    <p>Reflexiones, aprendizajes y experiencias de una diseñadora gráfica en su viaje profesional</p>
+                <div class="blog-header-content">
+                    <span class="blog-badge">Blog</span>
+                    <h1 class="blog-title">Articulos <span class="highlight">Recientes</span></h1>
+                    <p class="blog-subtitle">Reflexiones, aprendizajes y consejos sobre diseno grafico, creatividad y desarrollo profesional.</p>
                 </div>
             </div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- BLOG GRID - 3 ARTÍCULOS                   -->
-        <!-- ========================================== -->
+        <!-- ================================================================ -->
+        <!-- BLOG - ARTICULOS                                                 -->
+        <!-- ================================================================ -->
         <section class="blog-grid-section">
             <div class="container">
                 <div class="blog-grid">
 
-                    <!-- ARTÍCULO 1 -->
+                    <!-- ARTICULO 1 -->
                     <article class="blog-card">
                         <div class="blog-card-image">
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&auto=format&fit=crop&q=80" alt="Inicios en el diseño">
-                            <span class="blog-card-tag">Reflexión</span>
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&auto=format&fit=crop&q=80" alt="Diseno grafico">
+                            <span class="blog-card-tag">Diseno</span>
                         </div>
                         <div class="blog-card-body">
                             <div class="blog-card-meta">
-                                <span><i class="far fa-calendar-alt"></i> 15 Ene 2026</span>
+                                <span><i class="far fa-calendar-alt"></i> 15 Jun 2026</span>
                                 <span><i class="far fa-clock"></i> 5 min</span>
                             </div>
-                            <h3>Mis primeros pasos en el diseño gráfico</h3>
-                            <p>Todo comenzó con un lápiz y un cuaderno. Recuerdo pasar horas dibujando logotipos imaginarios y jugando con tipografías. No sabía que esos garabatos se convertirían en mi profesión.</p>
-                            <p>la primera clase fue nuevo para mi regresar a a los estudios: tantas herramientas, tantos conceptos. Pero cada clase me enseñaba algo nuevo y emocionante. Aprendí que el diseño no es solo hacer cosas bonitas, es resolver problemas visuales.</p>
-                            <a href="#" class="blog-card-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                            <h3>La importancia del diseno en la identidad de marca</h3>
+                            <p>El diseno grafico no es solo estetica, es comunicacion. Descubre como una identidad visual bien construida puede transformar la percepcion de tu marca y conectar con tu audiencia de manera efectiva.</p>
+                            <a href="articulo1.html" class="blog-card-link">
+                                Leer mas <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </article>
 
-                    <!-- ARTÍCULO 2 -->
+                    <!-- ARTICULO 2 -->
                     <article class="blog-card">
                         <div class="blog-card-image">
-                            <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?w=800&auto=format&fit=crop&q=80" alt="Aprendizajes">
-                            <span class="blog-card-tag">Aprendizaje</span>
+                            <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?w=800&auto=format&fit=crop&q=80" alt="Creatividad">
+                            <span class="blog-card-tag">Creatividad</span>
                         </div>
                         <div class="blog-card-body">
                             <div class="blog-card-meta">
-                                <span><i class="far fa-calendar-alt"></i> 22 Ene 2026</span>
-                                <span><i class="far fa-clock"></i> 6 min</span>
-                            </div>
-                            <h3>Lecciones que aprendí en mi primer trabajo</h3>
-                            <p>Mi primera experiencia laboral fue un desafío constante. Los plazos ajustados, los clientes exigentes y las revisiones interminables me enseñaron más que cualquier libro.</p>
-                            <p>Descubrí que la comunicación es tan importante como el diseño. Entender lo que el cliente realmente necesita, no solo lo que pide, marca la diferencia. Cada error fue una lección valiosa.</p>
-                            <a href="#" class="blog-card-link">Leer más <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-
-                    <!-- ARTÍCULO 3 -->
-                    <article class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format&fit=crop&q=80" alt="Inspiración">
-                            <span class="blog-card-tag">Inspiración</span>
-                        </div>
-                        <div class="blog-card-body">
-                            <div class="blog-card-meta">
-                                <span><i class="far fa-calendar-alt"></i> 5 Feb 2026</span>
+                                <span><i class="far fa-calendar-alt"></i> 22 Jun 2026</span>
                                 <span><i class="far fa-clock"></i> 4 min</span>
                             </div>
-                            <h3>Mi inspiración diaria como diseñadora</h3>
-                            <p>La creatividad no aparece por arte de magia. He aprendido a encontrarla en los lugares más inesperados: en un atardecer, en las texturas de la ciudad, en una conversación casual.</p>
-                            <p>Llevo siempre un cuaderno para apuntar ideas que surgen en cualquier momento. La inspiración es como un músculo: hay que ejercitarla todos los días para mantenerla fuerte.</p>
-                            <a href="#" class="blog-card-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                            <h3>5 habitos para potenciar tu creatividad diaria</h3>
+                            <p>La creatividad no es un don, es un musculo que se entrena. Te comparto 5 habitos simples pero poderosos que te ayudaran a mantener tu mente creativa activa y generar ideas innovadoras cada dia.</p>
+                            <a href="articulo2.html" class="blog-card-link">
+                                Leer mas <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </article>
 
                 </div>
 
-                <!-- Botón Volver al Inicio -->
+                <!-- BOTON VOLVER -->
                 <div class="blog-back">
                     <a href="index.html" class="btn-primary">
                         <i class="fas fa-arrow-left"></i> Volver al Inicio
                     </a>
                 </div>
+
             </div>
         </section>
 
     </main>
 
-    <!-- ========================================== -->
-    <!-- FOOTER                                     -->
-    <!-- ========================================== -->
+    <!-- ================================================================ -->
+    <!-- FOOTER - Pie de pagina                                           -->
+    <!-- ================================================================ -->
     <footer id="footer">
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-content">
                 <div class="footer-brand">
-                     <a href="index.html" class="logo">
-                <img src="img/logo.png" alt="Miroslava Logo"> Amanda Design
-                </a>
-                    <p>Diseñadora gráfica apasionada por transformar ideas en diseños que impactan y comunican.</p>
-                    <div class="footer-social-proof">
-                        <div class="avatars">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Usuario">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Usuario">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&auto=format&fit=crop&q=80" alt="Usuario">
-                            <span class="avatar-more">+5K</span>
-                        </div>
+                    <a href="index.html" class="footer-logo">
+                        <img src="img/logo.png" alt="Miroslava Logo">
+                        <span class="footer-brand-name">Miroslava</span>
+                    </a>
+                    <p class="footer-brand-desc">Diseno grafico con proposito y creatividad.</p>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Conecta</h4>
+                    <div class="footer-social-icons">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Explorar</h4>
-                    <ul>
-                        <li><a href="index.html#inicio">Inicio</a></li>
-                        <li><a href="index.html#sobre-mi">Sobre mí</a></li>
-                        <li><a href="index.html#servicios">Servicios</a></li>
-                        <li><a href="index.html#galeria">Portfolio</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Blog</h4>
-                    <ul>
-                        <li><a href="blog.html">Artículos</a></li>
-                        <li><a href="#">Consejos</a></li>
-                        <li><a href="#">Inspiración</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Contacto</h4>
-                    <ul>
-                        <li><a href="index.html#contacto">Contáctame</a></li>
-                        <li><a href="#">miroslava@diseno.com</a></li>
-                        <li><a href="#">+591 62363338</a></li>
-                    </ul>
                 </div>
             </div>
 
+            <div class="footer-divider"></div>
+
             <div class="footer-bottom">
-                <p>© 2026 Miroslava. Todos los derechos reservados.</p>
-                <div class="footer-legal">
-                    <a href="#">Términos</a>
-                    <a href="#">Privacidad</a>
-                    <a href="#">Cookies</a>
-                </div>
+                <p class="footer-copyright">
+                    <i class="fas fa-copyright"></i> 2026 Miroslava. 
+                    <span class="footer-copyright-text">Todos los derechos reservados.</span>
+                </p>
+                <p class="footer-credits">
+                    Disenado con <i class="fas fa-heart" style="color: #6366f1;"></i> por Miroslava
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- ========================================== -->
-    <!-- SCRIPTS                                    -->
-    <!-- ========================================== -->
+    <!-- ================================================================ -->
+    <!-- SCRIPTS                                                          -->
+    <!-- ================================================================ -->
     <script src="script.js"></script>
 </body>
 </html>

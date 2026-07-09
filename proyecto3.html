@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 3 - Miroslava Diseñadora</title>
+    
+    <!-- TIPOGRAFIAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="proyecto.css">
+</head>
+<body>
+
+    <!-- ================================================================ -->
+    <!-- HEADER - Barra de navegacion fija                                 -->
+    <!-- ================================================================ -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="header-left">
+                <button id="menu-btn" class="menu-toggle" aria-label="Abrir menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="index.html" class="logo">
+                    <img src="img/logo.png" alt="Miroslava Logo">
+                </a>
+            </div>
+
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre-mi.html">Sobre mi</a></li>
+                    
+                    <!-- PROYECTOS CON SUBMENU -->
+                    <li class="menu-item-has-children">
+                        <a href="#">Proyectos <i class="fas fa-chevron-down"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="proyecto1.html">Diseño de logotipos</a></li>
+                            <li><a href="proyecto2.html">Diseño de flyers</a></li>
+                            <li><a href="proyecto3.html" class="active">Spots publicitarios</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="theme-toggle" aria-label="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================================================================ -->
+    <!-- DRAWER - Menu lateral (Movil)                                    -->
+    <!-- ================================================================ -->
+    <div id="overlay"></div>
+    <nav id="drawer">
+        <div class="drawer-header">
+            <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="Miroslava Logo">
+            </a>
+            <button id="close-drawer" aria-label="Cerrar menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="drawer-nav">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="sobre-mi.html">Sobre mi</a></li>
+            <li class="drawer-menu-item-has-children">
+                <a href="#" class="drawer-toggle">Proyectos <i class="fas fa-chevron-down"></i></a>
+                <ul class="drawer-sub-menu">
+                    <li><a href="proyecto1.html">Diseño de logotipos</a></li>
+                    <li><a href="proyecto2.html">Diseño de flyers</a></li>
+                    <li><a href="proyecto3.html">Spots publicitarios</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contacto.html" class="drawer-cta">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- ================================================================ -->
+    <!-- MAIN                                                             -->
+    <!-- ================================================================ -->
+    <main>
+
+        <!-- ================================================================ -->
+        <!-- PROYECTO 3 - HERO                                                -->
+        <!-- ================================================================ -->
+        <section id="proyecto3" class="proyecto3">
+            <div class="hero-bg">
+                <img src="img/fondo.jpeg" alt="Proyecto 3">
+                <div class="hero-overlay"></div>
+            </div>
+            
+            <div class="container proyecto3-content">
+                
+                <!-- TEXTO (izquierda en desktop) -->
+                <div class="proyecto3-texto">
+                    <h1 class="proyecto3-titulo">Spots <span class="highlight">Publicitarios</span></h1>
+                    <div class="proyecto3-desc">
+                        <p>Realizo la edición y producción de spots publicitarios para redes sociales y plataformas digitales, combinando imágenes, video, música, animaciones y efectos visuales para crear contenido dinámico y atractivo.</p>
+                        <p>Cada video está diseñado para transmitir un mensaje claro, fortalecer la presencia de la marca y generar mayor interacción con la audiencia, adaptándose a diferentes formatos para Facebook, Instagram, TikTok y otras plataformas digitales.</p>
+                    </div>
+                    <a href="proyecto1.html" class="btn-proyecto3">Ver más proyectos <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- GALERIA - CARRUSEL DE VIDEOS -->
+                <div class="proyecto3-galeria">
+                    <div class="galeria-carrusel-wrapper">
+                        <div class="galeria-carrusel-track" id="videoTrack">
+                            
+                            <!-- Video 1 -->
+                            <div class="video-item">
+                                <video class="video-player" id="video1" muted playsinline>
+                                    <source src="videos/video6.mp4" type="video/mp4">
+                                    Tu navegador no soporta videos.
+                                </video>
+                                <div class="video-overlay">
+                                    <span>Spot 1</span>
+                                    <button class="video-play-btn" data-video="video1">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Video 2 -->
+                            <div class="video-item">
+                                <video class="video-player" id="video2" muted playsinline>
+                                    <source src="videos/video3.mp4" type="video/mp4">
+                                    Tu navegador no soporta videos.
+                                </video>
+                                <div class="video-overlay">
+                                    <span>Spot 2</span>
+                                    <button class="video-play-btn" data-video="video2">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Video 3 -->
+                            <div class="video-item">
+                                <video class="video-player" id="video3" muted playsinline>
+                                    <source src="videos/video2.mp4" type="video/mp4">
+                                    Tu navegador no soporta videos.
+                                </video>
+                                <div class="video-overlay">
+                                    <span>Spot 3</span>
+                                    <button class="video-play-btn" data-video="video3">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Controles del carrusel -->
+                        <div class="carrusel-controls">
+                            <button id="carrusel-prev" aria-label="Anterior">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="carrusel-dots">
+                                <span class="dot active" data-index="0"></span>
+                                <span class="dot" data-index="1"></span>
+                                <span class="dot" data-index="2"></span>
+                            </div>
+                            <button id="carrusel-next" aria-label="Siguiente">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================================================================ -->
+    <!-- FOOTER - Pie de pagina                                           -->
+    <!-- ================================================================ -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <img src="img/logo.png" alt="Miroslava Logo">
+                        <span class="footer-brand-name">Miroslava</span>
+                    </a>
+                    <p class="footer-brand-desc">Diseño gráfico con propósito y creatividad.</p>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Conecta</h4>
+                    <div class="footer-social-icons">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    <i class="fas fa-copyright"></i> 2026 Miroslava. 
+                    <span class="footer-copyright-text">Todos los derechos reservados.</span>
+                </p>
+                <p class="footer-credits">
+                    Diseñado con <i class="fas fa-heart" style="color: #6366f1;"></i> por Miroslava
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================================================================ -->
+    <!-- SCRIPTS                                                          -->
+    <!-- ================================================================ -->
+    <script src="script.js"></script>
+</body>
+</html>

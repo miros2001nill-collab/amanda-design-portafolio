@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La importancia del diseno en la identidad de marca - Miroslava</title>
+    
+    <!-- TIPOGRAFIAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="articulo.css">
+</head>
+<body>
+
+    <!-- ================================================================ -->
+    <!-- HEADER - Barra de navegacion fija                                 -->
+    <!-- ================================================================ -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="header-left">
+                <button id="menu-btn" class="menu-toggle" aria-label="Abrir menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="index.html" class="logo">
+                    <img src="img/logo.png" alt="Miroslava Logo">
+                </a>
+            </div>
+
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobremi.html">Sobre mi</a></li>
+                    <li class="menu-item-has-children">
+                        <a href="#proyectos">Proyectos <i class="fas fa-chevron-down"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="proyecto1.html">Diseño de logotipos</a></li>
+                            <li><a href="proyecto2.html">Diseño de flyers</a></li>
+                            <li><a href="proyecto3.html">Spots publicitarios</a></li>                            
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="theme-toggle" aria-label="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================================================================ -->
+    <!-- DRAWER - Menu lateral (Movil)                                    -->
+    <!-- ================================================================ -->
+    <div id="overlay"></div>
+    <nav id="drawer">
+        <div class="drawer-header">
+            <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="Miroslava Logo">
+            </a>
+            <button id="close-drawer" aria-label="Cerrar menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="drawer-nav">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="sobremi.html">Sobre mi</a></li>
+            <li class="drawer-menu-item-has-children">
+                <a href="#proyectos" class="drawer-toggle">Proyectos <i class="fas fa-chevron-down"></i></a>
+                <ul class="drawer-sub-menu">
+                            <li><a href="proyecto1.html">Diseño de logotipos</a></li>
+                            <li><a href="proyecto2.html">Diseño de flyers</a></li>
+                            <li><a href="proyecto3.html">Spots publicitarios</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contacto.html" class="drawer-cta">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- ================================================================ -->
+    <!-- MAIN                                                             -->
+    <!-- ================================================================ -->
+    <main>
+
+        <article class="articulo">
+            <div class="container">
+
+                <!-- ENCABEZADO -->
+                <header class="articulo-header">
+                    <a href="blog.html" class="articulo-back">
+                        <i class="fas fa-arrow-left"></i> Volver al blog
+                    </a>
+                    <span class="articulo-tag">Diseno</span>
+                    <h1 class="articulo-titulo">La importancia del diseno en la identidad de marca</h1>
+                    <div class="articulo-meta">
+                        <span><i class="far fa-calendar-alt"></i> 15 de junio de 2026</span>
+                        <span><i class="far fa-clock"></i> 5 min de lectura</span>
+                    </div>
+                </header>
+
+                <!-- IMAGEN DESTACADA -->
+                <div class="articulo-imagen">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&auto=format&fit=crop&q=80" alt="Diseno de identidad de marca">
+                </div>
+
+                <!-- CONTENIDO -->
+                <div class="articulo-contenido">
+
+                    <h2>Que es la identidad de marca</h2>
+                    <p>La identidad de marca es mucho mas que un logotipo bonito. Es la personalidad de tu negocio, la forma en que te comunicas, los valores que transmites y como te percibe tu audiencia. Una identidad de marca solida es la base sobre la que se construye la confianza y la lealtad de los clientes.</p>
+
+                    <h2>El diseno como herramienta de comunicacion</h2>
+                    <p>El diseno grafico es el puente entre tu marca y tus clientes. Una paleta de colores bien elegida, una tipografia coherente y una composicion visual cuidada comunican profesionalismo, atencion al detalle y autenticidad. Cada elemento visual cuenta una historia y transmite un mensaje.</p>
+
+                    <blockquote>
+                        "El diseno no es solo como se ve, sino como funciona. Una identidad visual coherente genera confianza y reconocimiento inmediato."
+                    </blockquote>
+
+                    <h2>Elementos clave de una identidad visual</h2>
+                    <ul>
+                        <li><strong>Logotipo:</strong> El simbolo que representa tu marca y la hace reconocible al instante.</li>
+                        <li><strong>Paleta de colores:</strong> Los colores que evocan emociones y refuerzan la personalidad de tu marca.</li>
+                        <li><strong>Tipografia:</strong> Las fuentes que comunican el tono y estilo de tu comunicacion.</li>
+                        <li><strong>Sistema grafico:</strong> Elementos visuales complementarios que dan cohesion a todas tus piezas.</li>
+                    </ul>
+
+                    <h2>Beneficios de una identidad visual profesional</h2>
+                    <p>Invertir en una identidad visual profesional no es un gasto, es una inversion. Una marca bien disenada genera confianza, aumenta el valor percibido de tus productos o servicios, y te diferencia de la competencia. Ademas, facilita la conexion emocional con tu audiencia, creando una relacion mas profunda y duradera.</p>
+
+                    <p>Recuerda: tu identidad visual es la primera impresion que causas. Asegurate de que sea memorable y autentica.</p>
+
+                </div>
+
+                <!-- BOTONES DE NAVEGACION -->
+                <div class="articulo-navegacion">
+                    <a href="blog.html" class="articulo-nav-btn">
+                        <i class="fas fa-arrow-left"></i> Volver al blog
+                    </a>
+                    <a href="articulo2.html" class="articulo-nav-btn articulo-nav-next">
+                        Siguiente articulo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </article>
+
+    </main>
+
+    <!-- ================================================================ -->
+    <!-- FOOTER - Pie de pagina                                           -->
+    <!-- ================================================================ -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <img src="img/logo.png" alt="Miroslava Logo">
+                        <span class="footer-brand-name">Miroslava</span>
+                    </a>
+                    <p class="footer-brand-desc">Diseno grafico con proposito y creatividad.</p>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Conecta</h4>
+                    <div class="footer-social-icons">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    <i class="fas fa-copyright"></i> 2026 Miroslava. 
+                    <span class="footer-copyright-text">Todos los derechos reservados.</span>
+                </p>
+                <p class="footer-credits">
+                    Disenado con <i class="fas fa-heart" style="color: #6366f1;"></i> por Miroslava
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
